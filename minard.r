@@ -4,11 +4,11 @@ drawGroup <- function(troops, groupNum) {
   maxSurvivors <- max(troops$survivors)
   advanceTroops <- troops[troops$direction=='A' & troops$group==groupNum,]
   retreatTroops <- troops[troops$direction=='R' & troops$group==groupNum,]
-  plot(advanceTroops[,c('long','survivors')], main=paste("Advance, Group ", groupNum), ylab="Number of Soldiers", ylim=c(0,maxSurvivors), cex=0, xlab="Longitude")
-  lines(advanceTroops[,c('long','survivors')], col="#e8a830", lwd=2)
+  plot(advanceTroops[,c('long','survivors')], main=paste("Advance, Group ", groupNum), ylab="Number of Soldiers", ylim=c(0,maxSurvivors), cex=0, xlab="Longitude", xlim=c(24,38))
+  lines(advanceTroops[,c('long','survivors')], col="#e8a830", lwd=2, xlim=c(24,38))
   
-  plot(retreatTroops[,c('long', 'survivors')], main=paste("Retreat, Group", groupNum), ylab="Number of Soldiers", ylim=c(0,maxSurvivors), cex=0, xlab="Longitude")
-  lines(retreatTroops[,c('long', 'survivors')], col="black", lwd=2)
+  plot(retreatTroops[,c('long', 'survivors')], main=paste("Retreat, Group", groupNum), ylab="Number of Soldiers", ylim=c(0,maxSurvivors), cex=0, xlab="Longitude", xlim=c(38, 24))
+  lines(retreatTroops[,c('long', 'survivors')], col="black", lwd=2, xlim=c(38, 24))
 }
 
 troops <- read.table("troops.txt", header=T)
